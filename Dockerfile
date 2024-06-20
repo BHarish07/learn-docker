@@ -11,7 +11,7 @@ ADD https://raw.githubusercontent.com/BHarish07/backend/main/Jenkinsfile /tmp/sa
 ADD https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip /tmp/
 RUN dnf install zip -y 
 ADD expense-frontend-v2.zip  /tmp/expense/
-RUN unzip expense-frontend-v2.zip /tmp/unzip/
+RUN unzip /tmp/expense/expense-frontend-v2.zip
 ADD sample-1.tar /tmp/expense/
 EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
