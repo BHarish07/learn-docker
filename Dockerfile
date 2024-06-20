@@ -12,8 +12,7 @@ ADD https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip /t
 RUN dnf install zip -y && dnf install unzip -y
 ADD expense-frontend-v2.zip  /tmp/expense/
 WORKDIR /tmp/expense/
-RUN unzip /tmp/expense/expense-frontend-v2.zip  && \
-   ls
+RUN unzip expense-frontend-v2.zip
 ADD sample-1.tar /tmp/expense/ 
 EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
