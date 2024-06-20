@@ -14,7 +14,6 @@ ADD expense-frontend-v2.zip  /tmp/expense/
 WORKDIR /tmp/expense/
 RUN unzip /tmp/expense/expense-frontend-v2.zip
 ADD sample-1.tar /tmp/expense/ 
-ADD expense-frontend-v2.zip  /tmp/frontend/
 EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
 
