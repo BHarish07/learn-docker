@@ -9,9 +9,9 @@ ENV trainer="Siva" \
     course="docker" 
 ADD https://raw.githubusercontent.com/BHarish07/backend/main/Jenkinsfile /tmp/sample.txt
 ADD https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip /tmp/
-RUN dnf install zip -y 
+RUN dnf install zip -y && dnf install unzip -y
 ADD expense-frontend-v2.zip  /tmp/expense/
-RUN unzip /tmp/expense/expense-frontend-v2.zip  /tmp/expense/
+RUN unzip /tmp/expense/expense-frontend-v2.zip 
 ADD sample-1.tar /tmp/expense/ 
 EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
