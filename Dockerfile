@@ -20,7 +20,7 @@ ADD sample-1.tar /tmp/expense/
 RUN useradd expense
 USER expense
 EXPOSE 80 
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
 ENTRYPOINT [ "sleep", "1000" ]
 
 
