@@ -3,8 +3,6 @@ FROM almalinux:${varsion:-9}
 RUN dnf install nginx -y
 RUN rm -rf /usr/share/nginx/html/index.html
 ONBUILD COPY index.html /usr/share/nginx/html/index.html
-RUN useradd expense
-USER expense
 LABEL author="Harish" \
       course="DevOps" \
       duration="100hr"
@@ -19,6 +17,8 @@ ADD expense-frontend-v2.zip  /tmp/expense/
 WORKDIR /tmp/expense/
 RUN unzip /tmp/expense/expense-frontend-v2.zip
 ADD sample-1.tar /tmp/expense/ 
+RUN useradd expense
+USER expense
 EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
 
