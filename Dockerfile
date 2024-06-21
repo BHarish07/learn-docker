@@ -21,6 +21,7 @@ RUN useradd expense
 USER expense
 EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT [ "sleep", "1000" ]
 
 
      
