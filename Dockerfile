@@ -1,10 +1,15 @@
-FROM almalinux:9
+ARG version
+FROM almalinux:${varsion:-9}
+RUN useradd expense
+USER expense
 RUN dnf install nginx -y
 RUN rm -rf /usr/share/nginx/html/index.html
-COPY index.html /usr/share/nginx/html/index.html
+ONBUILD COPY index.html /usr/share/nginx/html/index.html
 LABEL author="Harish" \
       course="DevOps" \
       duration="100hr"
+ARG COURSE="DevOps"
+RUN echo "Course is :${COURSE}"
 ENV trainer="Siva" \
     course="docker" 
 ADD https://raw.githubusercontent.com/BHarish07/backend/main/Jenkinsfile /tmp/sample.txt
