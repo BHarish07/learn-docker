@@ -1,1 +1,1 @@
-FROM 
+FROM image:1.0
